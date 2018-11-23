@@ -1,0 +1,85 @@
+<html>
+<head>
+<script>
+    var arr=[];
+    var pid = 1;
+function fn(){
+
+var buttontoggle=document.getElementById("buttonone");
+buttontoggle.style.visibility='hidden';
+
+var x=document.getElementById("form_sample");
+var createform=document.createElement('form');
+createform.setAttribute("action","");
+createform.setAttribute("method","post");
+//createform.sertAttribute("name","form_name");
+//createform.setAttribute("onsubmit","required()");
+x.appendChild(createform);
+
+var namelabel=document.createElement('label');
+namelabel.innerHTML="name:";
+createform.appendChild(namelabel);
+
+var inputelement=document.createElement('input');
+inputelement.setAttribute("type","text");
+inputelement.setAttribute("name","dname");
+    inputelement.setAttribute("id","1");
+createform.appendChild(inputelement);
+
+var linebreak=document.createElement('br');
+createform.appendChild(linebreak);
+
+var price=document.createElement('label');
+price.innerHTML="price:";
+createform.appendChild(price);
+
+var inputprice=document.createElement('input');
+inputprice.setAttribute("type","text");
+inputprice.setAttribute("price","100");
+    inputprice.setAttribute("id","2");
+createform.appendChild(inputprice);
+
+var linebreak=document.createElement('br');
+createform.appendChild(linebreak);
+
+var submitel=document.createElement('input');
+submitel.setAttribute("type","button");
+submitel.setAttribute("value","submit");
+submitel.setAttribute("onclick","val()");
+createform.appendChild(submitel);
+}
+function val(){
+alert("hello");
+    var a=document.getElementById("1").value;
+    var b=document.getElementById("2").value;
+    if(a==''|| b=='')
+    {
+        alert("All fields are mandatory");
+        return;
+    }
+    else
+    {
+        alert("Name = "+a);
+        alert("Price = "+b);
+        var obj=new Object();
+        obj.Id=pid;
+        obj.Name=a;
+        obj.price=b;
+        arr.push(obj);
+        pid++;
+        for(var i=0;i<arr.length;i++)
+            {
+                alert("Pid:"+arr[i].Id+" Name:"+arr[i].Name+" Price:"+arr[i].price);
+            }
+    }
+}
+</script>
+</head>
+<body>
+<div id="main">
+<h1>Creating form using javascript</h1>
+<div id="form_sample"></div>
+<button type="button" onclick="fn()" id="buttonone">Click on it!!</button>
+</div>
+</body>
+</html>
